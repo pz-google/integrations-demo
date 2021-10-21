@@ -2,6 +2,8 @@
   "id": "nginx",
   "displayName": "Nginx",
   "description": "Nginx, stylized as NGINX, nginx or NginX, is a web server that can also be used as a reverse proxy, load balancer, mail proxy and HTTP cache. The software was created by Igor Sysoev and publicly released in 2004. Nginx is free and open-source software, released under the terms of the 2-clause BSD license.",
+
+  // The integration could integrated with either GCE or GKE
   "platforms": [
     "GCE", "GKE",
   ],
@@ -9,6 +11,7 @@
     "minimumSupportedVersion": "2.1.0",
   },
   "detections": [
+    // For GCE installation's detection
     {
       "pipelineType": "METRIC",
       "platform": "GCE",
@@ -21,6 +24,8 @@
       "condition": "nginx",
     },
 
+    // For GKE installation's detection
+    // The metric is for demo purpose.
     {
       "pipelineType": "METRIC",
       "platform": "GKE",
@@ -29,6 +34,8 @@
 
   ],
 
+  // Extra documentations could be provided as list
+  // Such documentation in Google Cloud
   "documentationUrls": [
     {
       "label": "Google Cloud Ops Agent - nginx",

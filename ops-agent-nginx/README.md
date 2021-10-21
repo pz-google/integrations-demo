@@ -1,3 +1,14 @@
+# FOR THE DEMO
+
+> The section below the line is a copy of the nginx doc in ops-agent repo.
+>
+> The [metadata.json](metadata.json) file in this folder contains the majority of the specifications for the integration.
+>
+> Other artifacts, like [dashboards](dashboards), [alerts](alerts), are nested under this integration to achieve a strong and consistent association.
+
+
+---
+
 # `nginx` Metrics Receiver
 
 The nginx receiver can retrieve stats from your nginx instance using the `mod_status` endpoint.

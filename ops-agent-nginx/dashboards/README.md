@@ -9,4 +9,4 @@
 
 See [metadata.json](metadata.json) for the specifications.
 
-_All other files are for demo purpose only._
+_All other files, like `overview.json`, `overview.png`, are for demo purpose only and will be uploaded to SCS to serve Cloud Monitoring._

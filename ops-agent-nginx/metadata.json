@@ -3,7 +3,7 @@
   "displayName": "Nginx",
   "description": "Nginx, stylized as NGINX, nginx or NginX, is a web server that can also be used as a reverse proxy, load balancer, mail proxy and HTTP cache. The software was created by Igor Sysoev and publicly released in 2004. Nginx is free and open-source software, released under the terms of the 2-clause BSD license.",
 
-  // The integration could integrated with either GCE or GKE
+  // The integration could be integrated with either GCE or GKE
   "platforms": [
     "GCE", "GKE",
   ],
@@ -15,13 +15,17 @@
     {
       "pipelineType": "METRIC",
       "platform": "GCE",
-      "condition": "workload.googleapis.com/nginx.requests",
+      "characteristicMetric": {
+        "type": "workload.googleapis.com/nginx.requests",
+      }
     },
 
     {
       "pipelineType": "LOG",
       "platform": "GCE",
-      "condition": "nginx",
+      "characteristicLog": {
+        "log_name_regex": "nginx",
+      }
     },
 
     // For GKE installation's detection
@@ -29,9 +33,17 @@
     {
       "pipelineType": "METRIC",
       "platform": "GKE",
-      "condition": "workload.googleapis.com/kubernete/nginx.requests",
+      "characteristicMetric": {
+        "type": "workload.googleapis.com/kubernete/nginx.requests",
+      }
     },
-
+  ],
+  
+  "metrics": [
+    {"type": "workload.googleapis.com/nginx.requests"},
+    {"type": "workload.googleapis.com/nginx.connections_accepted"},
+    {"type": "workload.googleapis.com/nginx.connections_handled"},
+    {"type": "workload.googleapis.com/nginx.connections_current"},
   ],
 
   // Extra documentations could be provided as list

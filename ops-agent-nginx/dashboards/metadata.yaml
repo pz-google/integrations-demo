@@ -1,0 +1,24 @@
+---
+# This dashboard is for GCE only
+# It shows up in Cloud Monitoring only when GKE is detected as autoInstallation is true
+- id: overview-gce
+  displayName: Overview (GCE)
+  platform: GCE
+  autoInstallation: true
+  description: Overview (GCE) description
+
+# This dashboard is for GKE only
+# It shows up in Cloud Monitoring only when GKE is detected as autoInstallation is true
+- id: overview-gke
+  displayName: Overview (GKE)
+  platform: GKE
+  autoInstallation: true
+  description: Overview (GKE) description
+
+# Unlike the above dashboards, this won't show up in
+# Cloud Monitoring automatically.
+# We could serve this dashboard in the existing Sample Dashboards
+- id: overview
+  displayName: Overview (Generic)
+  autoInstallation: false
+  description: Overview (Generic) description

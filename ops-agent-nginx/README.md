@@ -2,7 +2,9 @@
 
 > The section below the line is a copy of the nginx doc in ops-agent repo.
 >
-> The [metadata.json](metadata.json) file in this folder contains the majority of the specifications for the integration.
+> The [metadata.yaml](metadata.yaml) file in this folder contains the majority of the specifications for the integration.
+>
+> The `logo.png` would be eventually uploaded to SCS to serve Cloud Monitoring FE.
 >
 > Other artifacts, like [dashboards](dashboards), [alerts](alerts), are nested under this integration to achieve a strong and consistent association.
 

@@ -7,6 +7,6 @@
 
 #### FOR THE DEMO
 
-See [metadata.json](metadata.json) for the specifications.
+See [metadata.yaml](metadata.yaml) for the specifications.
 
 _All other files, like `overview.json`, `overview.png`, are for demo purpose only and will be uploaded to SCS to serve Cloud Monitoring._

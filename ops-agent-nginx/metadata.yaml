@@ -8,41 +8,74 @@ description: Nginx, stylized as NGINX, nginx or NginX, is a web server that can 
 
 # The integration could be integrated with either GCE or GKE
 platforms:
-- GCE
-- GKE
+- type: GCE
 
-agentRequirement:
-  minimumSupportedVersion: 2.1.0
+  detections:
+  - characteristicMetric:
+      metricType: workload.googleapis.com/nginx.requests
+  - characteristicLog:
+      logNameRegex: nginx
 
-detections:
-# For GCE installation's detection
-- pipelineType: METRIC
-  platform: GCE
-  characteristicMetric:
-    type: workload.googleapis.com/nginx.requests
-- pipelineType: LOG
-  platform: GCE
-  characteristicLog:
-    log_name_regex: nginx
+  agentRequirement:
+    minimumSupportedVersion:
+      major: 2
+      minor: 1
+      patch: 0
+    recommendedVersion:
+      major: 3
+      minor: 0
+      patch: 0
 
-# For GKE installation's detection
-# The metric is for demo purpose.
-- pipelineType: METRIC
-  platform: GKE
-  characteristicMetric:
-    type: workload.googleapis.com/kubernete/nginx.requests
+  launchStage: GA
+  launchDate: 2021-11-01
 
-metrics:
-- type: workload.googleapis.com/nginx.requests
-- type: workload.googleapis.com/nginx.connections_accepted
-- type: workload.googleapis.com/nginx.connections_handled
-- type: workload.googleapis.com/nginx.connections_current
+  # Format of metrics is not finalized yet
+  defaultMetrics:
+  - name: workload.googleapis.com/nginx.requests
+    unit: By
+    type: gauge
+  - name: workload.googleapis.com/nginx.connections_accepted
+    unit: 1
+    type: cumulative
+  - name: workload.googleapis.com/nginx.connections_handled
+    unit: 1
+    type: cumulative
+  - name: workload.googleapis.com/nginx.connections_current
+    unit: 1
+    type: cumulative
+
+  # Format of logs is not finalized yet
+  defaultLogs:
+  - name: nginx_access
+    type: string
+  - name: nginx_error
+    type: string
+
+  installDocumentationUrl: https://cloud.google.com/monitoring/agent/ops-agent/third-party/nginx
+
+# For GKE
+# This is for demo purpose so the metric & log could be different from the actual.
+- type: GKE
+
+  detections:
+  - characteristicMetric:
+      metricType: workload.googleapis.com/kubernete/nginx.requests
+  - characteristicLog:
+      logNameRegex: k8s_nginx
+
+  agentRequirement:
+    minimumSupportedVersion:
+      major: 3
+      minor: 0
+      patch: 0
+    recommendedVersion:
+      major: 3
+      minor: 1
+      patch: 0
 
 # Extra documentations could be provided as list
 # Such documentation in Google Cloud
 documentationUrls:
 - label: Google Cloud Ops Agent - nginx
   url: https://cloud.google.com/monitoring/agent/ops-agent/third-party/nginx
-
-launchStage: GA
-launchDate: 2021-11-01
+  platformType: GCE

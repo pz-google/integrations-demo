@@ -73,6 +73,8 @@ platforms:
       minor: 1
       patch: 0
 
+  launchStage: PUBLIC_PREVIEW
+
 # Extra documentations could be provided as list
 # Such documentation in Google Cloud
 documentationUrls:
